@@ -11,13 +11,15 @@ use api: https://github.com/nhattruongniit/tony-json-server
 
 # Build an Issue Tracker Apps
 
+Checkout:
+
+[Index](https://competent-cray-50a481.netlify.app/todo-tracker/index.html)
+
 ## Flow diagram
 
 ![Flow](./images/flow.png)
 
 ## UI
-
-todo-tracker/index.html
 
 ![UI-Todo](./images/ui-todo.png)
 
@@ -32,6 +34,12 @@ todo-tracker/index.html
 
 # Build an Photo Album Apps
 
+Checkout:
+
+- [Index](https://competent-cray-50a481.netlify.app/photo-album/index.html)
+- [Add](https://competent-cray-50a481.netlify.app/photo-album/add.html)
+- [View Detail](https://competent-cray-50a481.netlify.app/photo-album/detail.html)
+
 ## UI
 
 photo-album/index.html
@@ -40,8 +48,8 @@ photo-album/index.html
 
 ## Tasks
 
-- Add new Photo: photo-album/add.html
+- Add new Photo
 - Show List Photo
 - Pagination Photo
 - Edit Photo
-- View Detail Photo: photo-album/detail.html
+- View Detail Photo
