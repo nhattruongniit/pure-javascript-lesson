@@ -27,14 +27,6 @@ todoForm.addEventListener('submit', function(e) {
   const description = document.getElementById('description').value;
   const severity = document.getElementById('severity').value;
 
-  // validate if not enter the issue
-  const msgDescription = document.getElementById('msgDescription');
-  msgDescription.innerHTML = '';
-  if (description === '') {
-    msgDescription.innerHTML = 'Please enter your issue';
-    return;
-  }
-
   // add todo
   const newTodo = {
     id: Date.now().toString(),
@@ -53,17 +45,8 @@ todoForm.addEventListener('submit', function(e) {
     todoForm.reset();
     listTodo.push(newTodo);
     fetchTodos(listTodo);
-    changeColor();
   })
 })
-//change color of the status
-function changeColor() {
-  const option = document.getElementsByTagName('option').value;
-  option[0].backgroundColor='black'
-  option[1].backgroundColor='green'
-  option[2].backgroundColor='red'
-}
-
 
 // update todo open->closed
 function setStatus(todoId) {
@@ -126,12 +109,10 @@ function setStatus(todoId) {
 
 // delete todo
 function deleteTodo(todoId) {
-  loading.style.display = 'block';
   fetch(`https://tony-json-server.herokuapp.com/api/todos/${todoId}`, {
     method: 'DELETE'
   })
   .then(_ => {
-    loading.style.display = 'none';
     for (const index in listTodo) {
       if(listTodo[index].id === todoId) {
         listTodo.splice(index, 1);
@@ -141,27 +122,27 @@ function deleteTodo(todoId) {
   })
 }
 
-// delete all 
-// document.getElementById('deleteAll').addEventListener('click', event => {
-//   document.getElementById('boxTodos').innerHTML = '';
-//   localStorage.removeItem('boxTodos');
-// })
-
-
 // fetch list todo
 function fetchTodos(list) {
   const issuesList = document.getElementById('issuesList');
   issuesList.innerHTML = '';
   
   for (const index in list) {
-    issuesList.innerHTML += `<div class="well"><h6>Issue ID: <span class="id">${list[index].id}</span></h6>
-      <p class="label label-info status ">${list[index].status}</p>
-      <h3 class="issue-name">${list[index].description}</h3>
-      <div class="severity">
-        <img src="https://img.icons8.com/pastel-glyph/64/000000/clock--v1.png"/>
-        <span class="issue-level">${list[index].severity}</span>
+    issuesList.innerHTML += `
+      <div class="card">
+        <div class="card-header d-flex align-items-center">
+          ${list[index].id} <span class="badge badge-secondary status" style="display:inline-block; margin-left: 5px;">${list[index].status}</span>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">${list[index].description}</h5>
+          <p class="card-text"><span class="badge badge-primary">${list[index].severity}</span></p>
+          <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary" style="margin-right: 10px;" onclick="setStatus(\'${list[index].id}\')">Close</button>
+            <button type="submit" class="btn btn-danger" onclick="deleteTodo(\'${list[index].id}\')">Delete</button>
+          </div>
+        </div>
       </div>
-      <button id="close-button" class="btn btn-warning" onclick="setStatus(\'${list[index].id}\')">Close</button>
-      <button class="btn btn-danger btn-delete" onclick="deleteTodo(\'${list[index].id}\')">Delete</button></div>`;
+      <br />
+    `
   }
 }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <title>Album Photo</title>
+</head>
+
+<style>
+    .container{
+        max-width:1330px;  
+    }
+</style>
+
+<body>
+  <div class="mx-auto" style="width: 650px; margin:80px">
+    <h1 class="display-5 text-center" style="font-weight: lighter;">Add New Album</h1>
+  </div>
+
+  <div class="container">
+    <form action="./index.html">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter Name">
+        </div>
+        <div class="form-group">
+            <label for="image">Image</label>
+            <input type="text" class="form-control" id="image" placeholder="Enter Image">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description" placeholder="Enter Description">
+        </div>
+        <br />
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+  </div>
+</body>
+</html>

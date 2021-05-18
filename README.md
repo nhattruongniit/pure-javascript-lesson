@@ -1,34 +1,47 @@
-# Build an Issue Tracker Application with pure javascript
+# Build Apps with Pure Javascript
 
 ## Track
 
 - pure javascript
-- bootstrap
+- bootstrap v4
 
 ## Api
 
 use api: https://github.com/nhattruongniit/tony-json-server
 
+# Build an Issue Tracker Apps
+
 ## Flow diagram
 
 ![Flow](./images/flow.png)
 
+## UI
+
+todo-tracker/index.html
+
+![UI-Todo](./images/ui-todo.png)
+
 ## Tasks
 
-### Register page
+- Add new Todo
+- Delete Todo
+- Update Todo
+- Filter Todo
+- Search by description
+- Order by ASC or DESC
 
-- Show msg “not match password & repeat password” when 2 field not match.
+# Build an Photo Album Apps
 
-- Show msg “This email is taken” when the user input the same email.
-- Show loading when calling api.
-- Show popup success after user register success. -> It will redirect the login page when the user clicks the “Ok” button.
+## UI
 
-### Login page
+photo-album/index.html
 
-- Khi users click Submit. Thi` navigate to index.html. If ko match vs localstorage. Show msgr error “User doesn’t exist”.
+![UI-Todo](./images/ui-photo.png)
 
-### Contact page
+## Tasks
 
-- Update information user.
-- Khi user vao lai index page, thi` show cac information user vao trong field tuong ung.
-- Khi users click the “logout” clear account trong localstorage & navigate to the Login page.
+- Add new Photo: photo-album/add.html
+- Show List Photo
+- Pagination Photo
+- Edit Photo
+- View Detail Photo: photo-album/detail.html
