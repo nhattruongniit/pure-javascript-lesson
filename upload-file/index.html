@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <title>Upload File</title>
+</head>
+
+<style>
+    .container{
+      max-width:1330px;  
+    }
+    .hide {
+      display: none;
+    }
+    .dropzone {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 30px;
+      margin-bottom: 0;
+      border-width: 2px;
+      border-radius: 2px;
+      border-color: #eeeeee;
+      border-style: dashed;
+      background-color: #fafafa;
+      color: #bdbdbd;
+      outline: none;
+      cursor: pointer;
+      height: 150px;
+      line-height: 150px;
+    }
+    .carContainter {
+      display: flex;
+      justify-content: flex-start;
+      padding: 10px;
+      flex-flow: row wrap;
+    }
+    .carContainter > * {
+      margin: 1% 0;
+      flex: 0 0 32%;
+    }
+    .carContainter > :nth-child(3n -1) {
+      margin-left: 2%;
+      margin-right: 2%;
+    }
+    .card {
+      width: 30%;
+      position: relative;
+    }
+    .card-img-top {
+      height: 280px
+    }
+</style>
+
+<body>
+  <div class="mx-auto" style="width: 650px; margin:20px">
+    <h1 class="display-5 text-center" style="font-weight: lighter;">Upload File</h1>
+  </div>
+  <div class="container">
+    <div >
+      <input accept="image/png, image/jpg" type="file" name="imageUpload" id="inputFile" class="hide"/>
+      <label for="inputFile" class="dropzone">Click to select files</label>
+      <img id="image" src="" alt="" title="" style="display: none" />
+      <div id="output" class="carContainter">
+        <div class="card">
+          <img class="card-img-top" src="./images/default-image.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Natural</h5>
+            <p class="card-text">Size: 230 KB</p>
+            <a href="javascript:;" class="btn btn-primary">Remove</a>
+          </div>
+        </div>
+        <div class="card">
+          <img class="card-img-top" src="./images/default-image.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Natural</h5>
+            <p class="card-text">Size: 230 KB</p>
+            <a href="javascript:;" class="btn btn-primary">Remove</a>
+          </div>
+        </div>
+        <div class="card">
+          <img class="card-img-top" src="./images/default-image.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Natural</h5>
+            <p class="card-text">Size: 230 KB</p>
+            <a href="javascript:;" class="btn btn-primary">Remove</a>
+          </div>
+        </div>
+        <div class="card">
+          <img class="card-img-top" src="./images/default-image.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Natural</h5>
+            <p class="card-text">Size: 230 KB</p>
+            <a href="javascript:;" class="btn btn-primary">Remove</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

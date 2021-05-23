@@ -51,3 +51,20 @@ Checkout:
 - Pagination Photo
 - Edit Photo
 - View Detail Photo
+
+# Build a Gallary Apps
+
+## UI
+
+Checkout:
+
+- [Index](https://competent-cray-50a481.netlify.app/upload-file/index.html)
+
+![UI-Todo](./images/ui-upload-file.png)
+
+## Tasks
+
+- Upload File
+- Delete File
+- Ordey by Size
+- Don't upload same file
