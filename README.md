@@ -44,13 +44,16 @@ Checkout:
 
 ![UI-Todo](./images/ui-photo.png)
 
-## Tasks
+# Build an Movie Film Apps
 
-- Add new Photo
-- Show List Photo
-- Pagination Photo
-- Edit Photo
-- View Detail Photo
+## UI
+
+Checkout:
+
+- [Index](https://competent-cray-50a481.netlify.app/movie-film/index.html)
+- [View Detail](https://competent-cray-50a481.netlify.app/movie-film/detail.html)
+
+![UI-MovieFilm](./images/ui-movie.png)
 
 # Build a Gallary Apps
 
