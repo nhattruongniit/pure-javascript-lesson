@@ -9,16 +9,15 @@ let listTodo;
 const getUser = window.localStorage.getItem('users');
 const user = JSON.parse(getUser);
 
-fetch(`https://tony-json-server.herokuapp.com/api/todos`, {
+fetch(`https://tony-json-server.herokuapp.com/api/todos?_page=1&_limit=5`, {
     method: 'GET',
   })
   .then(res => res.json())
   .then(res => {
+    const pagination = res.pagination;
     listTodo = res.data;
-    fetchTodos(res.data);
+    fetchTodos(res.data, pagination);
   })
-
-
 
 // add new todo
 const todoForm = document.getElementById('issueInputForm');
@@ -123,10 +122,14 @@ function deleteTodo(todoId) {
 }
 
 // fetch list todo
-function fetchTodos(list) {
+function fetchTodos(list, pagination) {
   const issuesList = document.getElementById('issuesList');
+  const paginationHtml = document.getElementById('pagination');
+  const pageItem = Math.ceil(pagination.totalCount / pagination.limit);
+
   issuesList.innerHTML = '';
-  
+  paginationHtml.innerHTML = '';
+
   for (const index in list) {
     issuesList.innerHTML += `
       <div class="card">
@@ -145,4 +148,25 @@ function fetchTodos(list) {
       <br />
     `
   }
+
+  Array.from(Array(pageItem).keys()).forEach(key => {
+    const page = key + 1;
+    paginationHtml.innerHTML += `
+      <li class="page-item"><a class="page-link" href="javascript:;" onclick="handlePagination(\'${page}\')">${page}</a></li>
+      <br />
+    `
+  })
+}
+
+
+function handlePagination(page) {
+  fetch(`https://tony-json-server.herokuapp.com/api/todos?_page=${page}&_limit=5`, {
+    method: 'GET',
+  })
+  .then(res => res.json())
+  .then(res => {
+    const pagination = res.pagination;
+    listTodo = res.data;
+    fetchTodos(res.data, pagination);
+  })
 }
