@@ -1,85 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Todo Tracker</title>
-    <!-- Bootstrap -->
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ISSUES TRACKER APP</title>
+
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
-    <div class="loader">
-      <div class="sk-chase">
-        <div class="sk-chase-dot"></div>
-        <div class="sk-chase-dot"></div>
-        <div class="sk-chase-dot"></div>
-        <div class="sk-chase-dot"></div>
-        <div class="sk-chase-dot"></div>
-        <div class="sk-chase-dot"></div>
-      </div>
-    </div>
-    <div class="mx-auto" style="width: 650px; margin:80px">
-      <h1 class="display-5 text-center" style="font-weight: lighter;">Todo Tracker</h1>
-    </div>
-    <div id="container" class="container">
-      <form id="issueInputForm">
-        <div class="form-group">
-          <label for="issueDescInput">Description</label>
-          <input type="text" id="description" class="form-control" id="issueDescInput" placeholder="Describe the issue ...">
+    <div id="error-mess" class="error-mess"></div>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container header-container">
+          <button id="signout" class="btn btn--signout">Sign out</button>
         </div>
-        <div class="form-group">
-          <label for="issueDescInput">Severity</label>
-            <select class="form-control" id="severity">
-              <option value="Low">Low</option>
-              <option value="Medium">Medium</option>
-              <option value="High">High</option>
-            </select> 
-        </div>
-        <div class="d-flex justify-content-end">
-          <button type="submit" class="btn btn-primary">Add</button>
-        </div>
-      </form>
-      <hr />
-      <div class="d-flex justify-content-between">
-        <h3>List Todo</h3>
-        <div>
-          <input type="text" class="form-control" placeholder="Search by description">
-        </div>
-      </div>
-      <br />
-      <div class="row">
-        <div class="col-2">Filter: </div>
-        <div class="col-10">
-          <button type="button" class="btn btn-primary btn-sm">All</button>
-          <button type="button" class="btn btn-success btn-sm">Open</button>
-          <button type="button" class="btn btn-info btn-sm">Close</button>
-        </div>
-      </div>
-      <br />
-      <div class="row">
-        <div class="col-2">Order By: </div>
-        <div class="col-2">
-          <select class="form-control" id="orderBy">
-            <option>ASC</option>
-            <option>DESC</option>
-          </select>
-        </div>
-      </div>
-      <br />
-      <div class="row">
-        <div class="col-lg-12">
-          <div id="issuesList">
-          </div>
+      </header>
+      <div class="main">
+        <div class="container">
+          <div class="main-content">
+            <section class="app-title">
+              <h1 class="app-name">ISSUE TRACKER</h1>
+            </section>
 
-          <nav aria-label="Page navigation example">
-            <ul class="pagination" id="pagination">
-            </ul>
-          </nav>
+            <section class="form">
+              <form action="" id="issueInputForm">
+                <div class="top-form">
+                  <div class="top-form-group">
+                    <!--row-->
+                    <div class="input-title">Description</div>
+                    <input
+                      id="inputIssueDescription"
+                      type="text"
+                      class="issue-input"
+                      placeholder="Describe the issue ..."
+                    />
+                  </div>
+
+                  <div class="top-form-group">
+                    <div class="input-title">Severity</div>
+                    <select
+                      name=""
+                      id="severity-status"
+                      class="severity-status"
+                    >
+                      <option value="low">Low</option>
+                      <option value="medium">Medium</option>
+                      <option value="high">High</option>
+                    </select>
+                  </div>
+
+                  <div class="top-form-group wrap-submit-btn">
+                    <button type="submit" class="btn">Add</button>
+                  </div>
+                </div>
+
+                <hr />
+              </form>
+              <div class="main-feature">
+                <div class="main-feature-group">
+                  <div class="list-feature-search-field">
+                    <h2 class="list-name">List Issue</h2>
+                    <input
+                      type="input"
+                      id="search-box"
+                      class="search-box"
+                      placeholder="Search by description"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="main-feature-group">
+                  <div class="list-feature-filter">
+                    <label for="" class="feature-label">Filter:</label>
+                    <div class="group-btn">
+                      <button
+                        id="all-status"
+                        value="all"
+                        class="btn filter-status-btn--all"
+                      >
+                        All
+                      </button>
+                      <button
+                        id="open-status"
+                        value="open"
+                        class="btn filter-status-btn--open"
+                      >
+                        Open
+                      </button>
+                      <button
+                        id="close-status"
+                        value="close"
+                        class="btn filter-status-btn--close"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="main-feature-group">
+                  <div class="list-feature-sort">
+                    <label for="" class="feature-label">Order By:</label>
+                    <select name="" id="sort-value">
+                      <option value="">Choose...</option>
+                      <option value="asc">ASC</option>
+                      <option value="desc">DESC</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="issue-list">
+              <ul id="issuesList" class="issue-list__list"></ul>
+            </section>
+          </div>
         </div>
       </div>
     </div>
-    <script src="main.js"></script>
+
+    <div id="loadingSpinnerContainer" class="loadingSpinnerContainer">
+      <div class="loadingSpinner"></div>
+    </div>
+
+    <script src="./assets/js/main.js"></script>
   </body>
+</html>
