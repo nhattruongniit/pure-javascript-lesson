@@ -40,7 +40,7 @@ autoReload();
 
 // call api
 function callApi(callback) {
-  fetch(`${backendAPI}/api/todos`)
+  fetch(`https://jsonplaceholder.typicode.com/todos?_limit=10&_page=1`)
     .then((response) => response.json())
     .then(callback)
     .catch((error) => {
@@ -54,17 +54,28 @@ function callApi(callback) {
 function autoReload() {
   callApi((responseData) => {
     // console.log('day la issue: ', responseData);
-    renderData(responseData.data);
+    renderData(responseData);
   });
 }
 
 // renderData
 function renderData(issues) {
+
+  // map data from mock api
+  const mapIssue = issues.map(issue => {
+    return {
+      id: issue.id,
+      title: issue.title,
+      description: issue.title,
+      severity: issue.completed ? 'close' : 'new',
+      status: issue.completed ? 'close' : 'new',
+    }
+  })
   issuesList.innerHTML = '';
 
-  dataIssues = issues;
+  dataIssues = mapIssue;
 
-  issues.forEach((issue) => {
+  mapIssue.forEach((issue) => {
     issuesList.innerHTML += `
         <li id="issue-list-item--${issue.id}" class="issue-list-item">
             <div class="list-item-header">
@@ -364,3 +375,10 @@ function sortDesc(dataIssues) {
     if (a.description > b.description) return -1;
   });
 }
+
+
+
+// fetch data -> implement DOM -> update -> DOM -> render UI
+// initial:  fetch data -> render UI 
+// updat/delete option 1: filter data -> fetch api -> render UI  (user wait 5s to view new UI)
+// updat/delete option 2: filter data -> render UI ->  fetch api background
