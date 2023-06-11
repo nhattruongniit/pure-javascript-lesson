@@ -363,3 +363,19 @@ hr {
     opacity: 1;
   }
 }
+
+.list-item-group-tabc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-item-group-author {
+  display: flex;
+}
+
+.list-item-group-author img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}

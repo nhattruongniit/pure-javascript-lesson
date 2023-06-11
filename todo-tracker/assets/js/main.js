@@ -1,3 +1,33 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // api
 const backendAPI = 'https://tony-json-server.herokuapp.com';
 
@@ -79,7 +109,7 @@ function renderData(issues) {
     issuesList.innerHTML += `
         <li id="issue-list-item--${issue.id}" class="issue-list-item">
             <div class="list-item-header">
-                <div for="" class="list-item-title">${issue.id}</div>
+                <div for="" class="list-item-title">Title</div>
                 <div id="issueStatus" class="list-item-status">
                     ${issue.status}
                 </div>
@@ -87,20 +117,25 @@ function renderData(issues) {
             <div class="list-item-content">
                 <h3 class="issue-name">${issue.description}</h3>
                 <div class="list-item-severity">${issue.severity}</div>
-                <div class="list-item-group-btn">
+                <div class="list-item-group-tabc">
+                  <div class="list-item-group-author">
+                    <img src="https://i.pravatar.cc/150?img=3" />
+                    <img src="https://i.pravatar.cc/150?img=3" />
+                  </div>
+                  <div class="list-item-group-btn">
                     <button 
                         id="changeSttBtn" 
-                        class="btn btn--close"
-                        onclick="updateIssueStt(
-                          '${issue.id}', '${issue.status}')"
+                        class="btn btn--close" 
+                        onclick="updateIssueStt('${issue.id}', 
+                            '${issue.status}')"
                     >
                         ${issue.status === 'new' ? 'Close' : 'Open'}
                     </button>
-                    
                     <button 
                         class="btn btn--delete" 
                         onclick="deleteIssue('${issue.id}')"
                     >Delete</button>
+                  </div>
                 </div>
             </div>
         </li>
@@ -262,7 +297,7 @@ function searchIssue(event) {
     issuesList.innerHTML += `
             <li id="issue-list-item--${issue.id}" class="issue-list-item">
                 <div class="list-item-header">
-                    <div for="" class="list-item-title">${issue.id}</div>
+                    <div for="" class="list-item-title">Title</div>
                     <div id="issueStatus" class="list-item-status">
                         ${issue.status}
                     </div>
@@ -270,7 +305,11 @@ function searchIssue(event) {
                 <div class="list-item-content">
                     <h3 class="issue-name">${issue.description}</h3>
                     <div class="list-item-severity">${issue.severity}</div>
-                    <div class="list-item-group-btn">
+                    <div>
+                      <div class="list-item-group-author">
+                        <img src="https://i.pravatar.cc/150?img=3" />
+                      </div>
+                      <div class="list-item-group-btn">
                         <button 
                             id="changeSttBtn" 
                             class="btn btn--close" 
@@ -283,6 +322,7 @@ function searchIssue(event) {
                             class="btn btn--delete" 
                             onclick="deleteIssue('${issue.id}')"
                         >Delete</button>
+                      </div>
                     </div>
                 </div>
             </li>
