@@ -1,33 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // api
 const backendAPI = 'https://tony-json-server.herokuapp.com';
 
