@@ -1,6 +1,8 @@
 const submitForm = document.getElementById("submitForm");
 const tableUser = document.getElementById("tableUser");
 
+const dataUsers = [];
+
 // get value of input
 function getValue(id) {
   return document.getElementById(id).value.trim();
@@ -12,44 +14,61 @@ function showError(key, mess) {
 
 submitForm.addEventListener("submit", function (e) {
   e.preventDefault();
-  console.log("submitForm: ");
 
-  // 1 username
+  // firstName
   const firstName = getValue("firstName");
-  if (
-    firstName == "" ||
-    firstName.length < 5 ||
-    !/^[a-zA-Z0-9]+$/.test(firstName)
-  ) {
-    showError("firstName", "Vui lòng kiểm tra lại first name");
+  if (!firstName || !/^[a-zA-Z0-9]+$/.test(firstName)) {
+    showError("firstName", "Please enter first name");
+    return;
+  } else {
+    showError("firstName", "");
   }
 
-  renderUser([1]); // demo
+  // lastName
+  const lastName = getValue("lastName");
+  if (!lastName || !/^[a-zA-Z0-9]+$/.test(lastName)) {
+    showError("lastName", "Please enter last name");
+    return;
+  } else {
+    showError("lastName", "");
+  }
+
+  // lastName
+  const email = getValue("email");
+  const mailformat =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  if (!email || !mailformat.test(email)) {
+    showError("email", "Email wrong format");
+    return;
+  } else {
+    showError("email", "");
+  }
+
+  const userItem = {
+    id: Date.now(),
+    firstName,
+    lastName,
+    email,
+    gender: getValue("gender"),
+  };
+
+  dataUsers.push(userItem);
+
+  renderUser(dataUsers); // demo
 });
 
 function renderUser(dataSource) {
   tableUser.innerHTML = "";
 
-  dataSource.forEach((user, index) => {
+  dataSource.forEach((user) => {
     tableUser.innerHTML += `
-    <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">Email</th>
-        <th scope="col">Gender</th>
+        <th scope="row">${user.id}</th>
+        <td>${user.firstName}</td>
+        <td>${user.lastName}</td>
+        <td>${user.email}</td>
+        <td>${user.gender}</td>
       </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>tony@gmail.com</td>
-        <td>Male</td>
-      </tr>
-    </tbody>
   `;
   });
 }
