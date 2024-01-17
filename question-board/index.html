@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Questionn board</title>
+
+  </head>
+  <body>
+    <h2 class="text-[30px] font-semibold text-center">Question Board</h2>
+    <div>
+      <h2 class="mb-2 text-lg font-semibold text-gray-900">Requirements</h2>
+      <div class="space-y-1 text-gray-500 list-disc list-inside">
+        Build a question board that displays the list question that group by categories.
+        <ul class="space-y-1 text-gray-500 list-disc list-inside mt-5  ml-5">
+          <li>
+            Show questions by categories. Get data from dataQuestions.js
+          </li>
+          <li>
+            Show submissions question status: correct, incorrect, partially correct. Get data from dataSubmissions.js
+              <ul class="text-gray-500 list- list-inside ml-10">
+                <li>
+                  None answer: <span class="text-gray-500">gray</span>
+                </li>
+                <li>
+                  Correct answer: <span class="text-green-500">green</span>
+                </li>
+                <li>
+                  Incorrect answer: <span class="text-red-500">red</span>
+                </li>
+                <li>
+                  Partially correct answer: <span class="text-yellow-500">yellow</span>
+                </li>
+              </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <br />
+    <br />
+
+    <div id="question_board" class="question_board">
+      <!-- <div class="column">
+        <h2>HTML - 1 / 4</h2>
+        <div class="boards">
+          <div class="question">
+            <div class="question__status question__status--correct"></div>
+            <h2 class="question__title">Sign-Up Form</h2>
+          </div>
+        </div>
+        <div class="boards">
+          <div class="question">
+            <div class="question__status question__status--incorrect"></div>
+            <h2 class="question__title">Item cart</h2>
+          </div>
+        </div>
+        <div class="boards">
+          <div class="question">
+            <div class="question__status question__status--partially_correct"></div>
+            <h2 class="question__title">Item cart</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <h2>JAVASCRIPT - 0 / 4</h2>
+        <div class="boards">
+          <div class="question">
+            <div class="question__status question__status--partially_correct"></div>
+            <h2 class="question__title">ES6</h2>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <h2>CSS - 0 / 4</h2>
+        <div class="boards">
+          <div class="question">
+            <div class="question__status question__status--incorrect"></div>
+            <h2 class="question__title">Box Modal</h2>
+          </div>
+        </div>
+      </div> -->
+    </div>
+   
+    <link rel="stylesheet" href="./style.css" />
+    <script type="text/javascript" src="./index.js" defer></script>
+  </body>
+</html>
